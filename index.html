@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Design Portfolio</title>
   <style>
-    /* Center the projects */
     body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -19,46 +18,43 @@
       font-size: 36px;
     }
 
-    /* Centering the container for the projects */
     .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Style for project boxes */
     .project {
-      display: inline-block;
-      width: 45%; /* Adjust width for two columns */
-      margin: 20px 2%;
-      text-align: center;
+      flex: 1 1 calc(50% - 40px); /* Ensures two columns with space */
+      max-width: 500px; /* Prevents projects from getting too wide */
       background-color: #fff;
       border: 1px solid #ddd;
       padding: 20px;
       box-sizing: border-box;
       border-radius: 8px;
+      text-align: center;
     }
 
-    /* Image styling */
     .project img {
       width: 100%;
       height: auto;
       border-radius: 8px;
     }
 
-    /* Adjustments for smaller screens */
     @media screen and (max-width: 768px) {
       .project {
-        width: 90%; /* Stack the projects on smaller screens */
+        flex: 1 1 100%; /* Stack projects on smaller screens */
       }
     }
-
   </style>
 </head>
 <body>
   <h1>My Game Design Portfolio</h1>
   <div class="projects-container">
-    <!-- Project 1 -->
     <div class="project">
       <h2>Computational Intelligence Project</h2>
       <a href="Project1.html">
@@ -67,31 +63,28 @@
       <p>Using Python to develop and evaluate predictive models for garment employee productivity.</p>
     </div>
 
-    <!-- Project 2: Designing and Implementing Game Mechanics Project -->
     <div class="project">
       <h2>Designing and Implementing Game Mechanics</h2>
       <a href="Project2.html">
-        <img src="images/project2-thumbnail.jpg" alt="Designing and Implementing Game Mechanics Thumbnail">
+        <img src="images/project2-thumbnail.jpg" alt="Game Mechanics Thumbnail">
       </a>
-      <p>Using C# in Unity to design and implement game mechanics based on a provided brief. Click to view details.</p>
+      <p>Using C# in Unity to design and implement game mechanics based on a provided brief.</p>
     </div>
 
-    <!-- Project3: Creating virtual worlds with the GPU project -->
     <div class="project">
       <h2>Creating Virtual Worlds using the GPU</h2>
       <a href="Project3.html">
-        <img src="images/project3-thumbnail.jpg" alt="Thumbnail for Creating Virtual Worlds using the GPU">
+        <img src="images/project3-thumbnail.jpg" alt="Virtual Worlds Thumbnail">
       </a>
-      <p>Using C++ and OpenGL to implement key aspects of a 3D game environment, including asset integration, camera control, and advanced graphical effects</p>
+      <p>Using C++ and OpenGL to implement key aspects of a 3D game environment.</p>
     </div>
 
-    <!-- Project 4: Developing Quality Software & Systems -->
     <div class="project">
       <h2>Developing Quality Software & Systems</h2>
       <a href="Project4.html">
-        <img src="images/project4-thumbnail.jpg" alt="Developing Quality Software & Systems Thumbnail">
+        <img src="images/project4-thumbnail.jpg" alt="Software Systems Thumbnail">
       </a>
-      <p>Using MIT App Inventor to develop an Android app prototype with user authentication, settings customization, and structured activity menus.</p>
+      <p>Using MIT App Inventor to develop an Android app prototype.</p>
     </div>
   </div>
 </body>
