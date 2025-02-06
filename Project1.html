@@ -8,24 +8,53 @@
 <body>
   <h1>Computational Intelligence Techniques Applied to the Productivity Prediction Data of Garment Employees</h1>
 
-  <!-- Project Description -->
-  <p>This project aimed to develop predictive models using computational intelligence techniques to classify garment employees' productivity as satisfactory or unsatisfactory. The dataset provided information about various employee features, including work habits, output, and personal details. By applying machine learning algorithms, I aimed to optimise productivity prediction and improve workforce management decisions.</p>
+  <!-- Project Overview -->
+  <h2>Project Overview</h2>
+  <p>
+    This project involved developing machine learning models to classify garment employee productivity as satisfactory or unsatisfactory. 
+    I used Python with NumPy, Keras, and Matplotlib to preprocess data, train models, and analyse results.
+  </p>
 
-  <h2>Methodology</h2>
-  <p>For this project, I implemented several machine learning models, starting with a neural network model built from scratch using Python and Keras. I also used NumPy for data manipulation and preprocessing. After evaluating the performance of the neural network, I compared it to a random forest classifier to determine which approach yielded better results. I utilised evaluation metrics such as accuracy, precision, recall, and F1 score to assess the model's performance in classifying employee productivity.</p>
+  <!-- Data Preprocessing & Feature Engineering -->
+  <h2>Data Preprocessing & Feature Engineering</h2>
+  <p>
+    The dataset included various workplace metrics such as efficiency, overtime hours, and department type. 
+    I handled missing values, normalised numerical features, and encoded categorical data to ensure optimal model performance.
+  </p>
 
-  <h2>Results and Findings</h2>
-  <p>The neural network model performed well with a moderate accuracy rate, while the random forest classifier outperformed the neural network in terms of both accuracy and precision. This comparison helped identify which computational intelligence technique was more suited for this classification task. The results suggested that ensemble methods like random forests are effective in handling complex datasets with mixed features. Visualisations, such as confusion matrices and ROC curves, were used to illustrate the models' performance in distinguishing between satisfactory and unsatisfactory productivity.</p>
+  <h3>Feature Distributions</h3>
+  <p>
+    The bar graphs below visualise feature distributions in the dataset after handling missing values and preparing the data for modelling.
+  </p>
+  <img src="images/project1-bargraphs.jpg" alt="Feature Distributions Bar Graphs" width="500">
 
-  <!-- Project Screenshots -->
-  <h2>Project Visualisations</h2>
-  <p>Below are some of the key visualisations from the project, showing the performance of the models, such as confusion matrices and evaluation plots:</p>
-  <img src="images/project1-screenshot1.jpg" alt="Confusion Matrix for Neural Network Model" width="600">
-  <img src="images/project1-screenshot2.jpg" alt="Performance Comparison of Models" width="600">
+  <!-- Model Development & Evaluation -->
+  <h2>Model Development & Evaluation</h2>
+  <p>
+    I implemented multiple classification models, starting with a simple neural network using Keras. I experimented with different activation 
+    functions, hidden layers, and dropout rates. I also compared the neural network's performance with a Random Forest classifier, 
+    which handled imbalanced data more effectively.
+  </p>
 
-  <!-- Back to Main Portfolio -->
+  <h3>Performance Comparison</h3>
+  <p>
+    The plot below visualises the accuracy, precision, recall, and F1-score of different models tested throughout the project. 
+    This helped identify the best-performing approach for classifying employee productivity.
+  </p>
+  <img src="images/project1-model-comparison.jpg" alt="Model Performance Comparison Plot" width="500">
+
+  <!-- Key Takeaways -->
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>Refined my skills in data preprocessing, feature engineering, and model evaluation.</li>
+    <li>Learned to optimise deep learning models using hyperparameter tuning.</li>
+    <li>Compared machine learning approaches to find the best fit for a real-world dataset.</li>
+  </ul>
+
+  <!-- Back to Portfolio -->
   <p><a href="index.html">Back to Portfolio</a></p>
 </body>
 </html>
+
 
 
