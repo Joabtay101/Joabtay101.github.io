@@ -3,78 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Computational Intelligence Project -  Portfolio</title>
+  <title>Computational Intelligence Project - Game Design Portfolio</title>
   <style>
-    /* Styling for black bars */
-    .black-bar {
-      background-color: #000;
-      height: 20px;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
     }
-    
-    h1 {
-      padding-top: 30px; /* Adjust this value if necessary */
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 5px;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <!-- Top black bar -->
-  <div class="black-bar"></div>
 
-  <h1>Computational Intelligence Techniques Applied to the Productivity Prediction Data of Garment Employees</h1>
+  <header>
+    <h1>Computational Intelligence Project</h1>
+    <p>Game Design Portfolio</p>
+  </header>
 
   <!-- Project Overview -->
-  <h2>Project Overview</h2>
-  <p>
-    This project involved developing machine learning models to classify garment employee productivity as satisfactory or unsatisfactory. 
-    I used Python with NumPy, Keras, and Matplotlib to preprocess data, train models, and analyse results.
-  </p>
+  <section>
+    <h2>Project Overview</h2>
+    <p>
+      This project involved developing machine learning models to classify garment employee productivity as satisfactory or unsatisfactory. 
+      The challenge was to handle an imbalanced dataset and identify key factors influencing productivity. I used Python with libraries such as NumPy, 
+      Keras, and Matplotlib for data preprocessing, model training, and results analysis. The end goal was to implement a model that could be deployed 
+      in a real-world setting to aid decision-making in garment factories.
+    </p>
+  </section>
 
   <!-- Data Preprocessing & Feature Engineering -->
-  <h2>Data Preprocessing & Feature Engineering</h2>
-  <p>
-    The dataset included various workplace metrics such as efficiency, overtime hours, and department type. 
-    I handled missing values, normalised numerical features, and encoded categorical data to ensure optimal model performance.
-  </p>
-
-  <h3>Feature Distributions</h3>
-  <p>
-    The bar graphs below visualise feature distributions in the dataset after handling missing values and preparing the data for modelling.
-  </p>
-  <img src="images/project1-bargraphs.jpg" alt="Feature Distributions Bar Graphs" width="500">
+  <section>
+    <h2>Data Preprocessing & Feature Engineering</h2>
+    <p>
+      The dataset included various workplace metrics such as efficiency, overtime hours, and department type. I handled missing values, 
+      normalised numerical features, and encoded categorical data to ensure optimal model performance. A major part of this stage was to 
+      apply feature engineering, creating new variables and transforming existing ones to better capture patterns in the data.
+    </p>
+    <h3>Feature Distributions</h3>
+    <p>
+      The bar graphs below visualise the distributions of features in the dataset after preprocessing and preparing the data for modelling. 
+      These feature distributions were key in understanding the structure of the data and helped inform the model-building process.
+    </p>
+    <img src="images/project1-bargraphs.jpg" alt="Feature Distributions Bar Graphs" width="600">
+  </section>
 
   <!-- Model Development & Evaluation -->
-  <h2>Model Development & Evaluation</h2>
-  <p>
-    I implemented multiple classification models, starting with a simple neural network using Keras. I experimented with different activation 
-    functions, hidden layers, and dropout rates. I also compared the neural network's performance with a Random Forest classifier, 
-    which handled imbalanced data more effectively.
-  </p>
-
-  <h3>Performance Comparison</h3>
-  <p>
-    The plot below visualises the accuracy, precision, recall, and F1-score of different models tested throughout the project. 
-    This helped identify the best-performing approach for classifying employee productivity.
-  </p>
-  <img src="images/project1-model-comparison.jpg" alt="Model Performance Comparison Plot" width="500">
+  <section>
+    <h2>Model Development & Evaluation</h2>
+    <p>
+      For model development, I started with a simple neural network architecture built using Keras. This model used one hidden layer with a 
+      ReLU activation function, and dropout layers to prevent overfitting. After experimenting with various hyperparameters such as learning rate 
+      and dropout rate, I explored more advanced models, including Random Forests. The Random Forest classifier outperformed the neural network in 
+      handling imbalanced data and provided better generalization on unseen data. 
+    </p>
+    <h3>Performance Comparison</h3>
+    <p>
+      The plot below visualises the accuracy, precision, recall, and F1-score of the models tested throughout the project. These metrics were 
+      essential in evaluating the effectiveness of the models and identifying the best-performing approach for classifying employee productivity.
+    </p>
+    <img src="images/project1-model-comparison.jpg" alt="Model Performance Comparison Plot" width="600">
+  </section>
 
   <!-- Key Takeaways -->
-  <h2>Key Takeaways</h2>
-  <ul>
-    <li>Refined my skills in data preprocessing, feature engineering, and model evaluation.</li>
-    <li>Learned to optimise deep learning models using hyperparameter tuning.</li>
-    <li>Compared machine learning approaches to find the best fit for a real-world dataset.</li>
-  </ul>
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Refined my skills in data preprocessing, feature engineering, and model evaluation. I developed a deep understanding of how to 
+          handle real-world datasets, including handling missing data, encoding categorical variables, and normalizing numerical features.</li>
+      <li>Gained experience in hyperparameter tuning and optimising deep learning models. Through trial and error, I fine-tuned the neural 
+          network’s architecture and dropout rates to prevent overfitting.</li>
+      <li>Learned to compare multiple machine learning models and select the best one for a given task. The performance of the neural network 
+          was significantly improved by using Random Forest, which is particularly good at handling imbalanced data.</li>
+      <li>Worked with Keras and Scikit-learn, which are powerful tools for building machine learning models and evaluating their performance.</li>
+      <li>Honed my skills in presenting complex results through visualizations, allowing stakeholders to easily interpret key findings and make data-driven decisions.</li>
+    </ul>
+  </section>
 
   <!-- Full Report Link -->
-  <p>
-    <strong>Full Report:</strong>  
-    <a href="https://Joabtay101.github.io/index.html" target="_blank">View Full Report</a>
-  </p>
+  <section>
+    <p><strong>Full Code Documentation:</strong></p>
+    <p>
+      You can view the full code and documentation for this project by following the link below:
+    </p>
+    <p><a href="https://Joabtay101.github.io/index.html" target="_blank">View Code</a></p>
+  </section>
 
   <!-- Back to Portfolio -->
-  <p><a href="index.html">Back to Portfolio</a></p>
+  <section>
+    <p><a href="index.html">Back to Portfolio</a></p>
+  </section>
 
-  <!-- Bottom black bar -->
-  <div class="black-bar"></div>
+  <footer>
+    <p>© 2025 Joab Tay - Game Design Portfolio</p>
+  </footer>
+
 </body>
 </html>
