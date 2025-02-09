@@ -1,27 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>[Project Title] - Game Design Portfolio</title>
-</head>
-<body>
-  <h1>[Project Title]</h1>
-
-  <!-- Project Description -->
-  <p>[Write a detailed description of Project 2 here. Include information about what the project is, how you developed it, the tools and technologies you used, and any challenges you faced.]</p>
-
-  <!-- Project Video -->
-  <h2>Project Video</h2>
-  <video width="600" controls>
-    <source src="videos/project2-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Project Screenshots -->
-  <h2>Screenshots</h2>
-  <img src="images/project2-screenshot1.jpg" alt="[Screenshot 1 Description]" width="300">
-  <img src="images/project2-screenshot2.jpg" alt="[Screenshot 2 Description]" width="300">
-
-  <!-- Back to Main Portfolio -->
-  <p><a href="index.html">Back to Portfolio</a></p>
-</body>
-</html>
+export default function ProjectPage() {
+  return (
+    <div className="max-w-4xl mx-auto p-6 space-y-8">
+      <h1 className="text-4xl font-bold text-center">Caerdydd Dragon - A Puzzle Platformer</h1>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Overview</h2>
+        <p>
+          Caerdydd Dragon is a 2D puzzle platformer inspired by the cultural heritage of Wales. 
+          The game features the iconic Welsh dragon as the protagonist, navigating through levels 
+          set within Cardiff Castle, collecting daffodils along the way. The game emphasizes 
+          accessibility, smooth movement mechanics, and an engaging difficulty curve while 
+          showcasing a strong sense of place and identity tied to its setting.
+        </p>
+        
+      <section>
+        <h2 className="text-2xl font-semibold">Project Goals</h2>
+        <ul className="list-disc list-inside">
+          <li>Engaging Gameplay: Provide an intuitive yet challenging experience.</li>
+          <li>Cultural Representation: Capture Welsh culture through environment design.</li>
+          <li>Technical Execution: Develop a polished platforming system.</li>
+          <li>Replayability: Encourage players to return through collectibles and mechanics.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Key Features</h2>
+        <ul className="list-disc list-inside">
+          <li>Smooth movement & camera mechanics with intuitive controls.</li>
+          <li>Progressive difficulty with two distinct levels.</li>
+          <li>Wind Zones for aerial movement and strategic platforming.</li>
+          <li>Collectibles and enemy interactions designed for engagement.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Technical Specifications</h2>
+        <ul className="list-disc list-inside">
+          <li>Git Workflow: Master, Development, and Feature branches.</li>
+          <li>Key Algorithms: Singleton pattern, state-based input handling.</li>
+          <li>Camera System: Dynamic tracking and cinematic triggers.</li>
+          <li>Enemy AI: Triggerable actors with a shared base class.</li>
+          <li>Documentation: Doxygen-generated class documentation available.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Playtesting & Feedback</h2>
+        <ul className="list-disc list-inside">
+          <li>20 playtesters assessing accessibility and mechanics comprehension.</li>
+          <li>80% found controls easy to grasp.</li>
+          <li>95% found jumping onto enemies fun.</li>
+          <li>80% found Wind Zones enjoyable but some struggled with the difficulty.</li>
+          <li>Adjustments made for better tutorialisation and balance.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Evaluation & Conclusion</h2>
+        <p>
+          The project successfully met its objectives of accessibility, cultural representation, 
+          and engaging gameplay. Feedback scores averaged 4/5, with refinements planned for future iterations.
+        </p>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Gameplay Videos</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h3 className="text-xl font-semibold">Level 1: Enemy Interaction</h3>
+            <video className="w-full rounded-lg" controls>
+              <source src="/videos/level1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold">Level 2: Wind Zones</h3>
+            <video className="w-full rounded-lg" controls>
+              <source src="/videos/level2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
