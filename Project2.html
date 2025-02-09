@@ -1,87 +1,66 @@
-export default function ProjectPage() {
-  return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <h1 className="text-4xl font-bold text-center">Caerdydd Dragon - A Puzzle Platformer</h1>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Overview</h2>
-        <p>
-          Caerdydd Dragon is a 2D puzzle platformer inspired by the cultural heritage of Wales. 
-          The game features the iconic Welsh dragon as the protagonist, navigating through levels 
-          set within Cardiff Castle, collecting daffodils along the way. The game emphasizes 
-          accessibility, smooth movement mechanics, and an engaging difficulty curve while 
-          showcasing a strong sense of place and identity tied to its setting.
-        </p>
-        
-      <section>
-        <h2 className="text-2xl font-semibold">Project Goals</h2>
-        <ul className="list-disc list-inside">
-          <li>Engaging Gameplay: Provide an intuitive yet challenging experience.</li>
-          <li>Cultural Representation: Capture Welsh culture through environment design.</li>
-          <li>Technical Execution: Develop a polished platforming system.</li>
-          <li>Replayability: Encourage players to return through collectibles and mechanics.</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Key Features</h2>
-        <ul className="list-disc list-inside">
-          <li>Smooth movement & camera mechanics with intuitive controls.</li>
-          <li>Progressive difficulty with two distinct levels.</li>
-          <li>Wind Zones for aerial movement and strategic platforming.</li>
-          <li>Collectibles and enemy interactions designed for engagement.</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Technical Specifications</h2>
-        <ul className="list-disc list-inside">
-          <li>Git Workflow: Master, Development, and Feature branches.</li>
-          <li>Key Algorithms: Singleton pattern, state-based input handling.</li>
-          <li>Camera System: Dynamic tracking and cinematic triggers.</li>
-          <li>Enemy AI: Triggerable actors with a shared base class.</li>
-          <li>Documentation: Doxygen-generated class documentation available.</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Playtesting & Feedback</h2>
-        <ul className="list-disc list-inside">
-          <li>20 playtesters assessing accessibility and mechanics comprehension.</li>
-          <li>80% found controls easy to grasp.</li>
-          <li>95% found jumping onto enemies fun.</li>
-          <li>80% found Wind Zones enjoyable but some struggled with the difficulty.</li>
-          <li>Adjustments made for better tutorialisation and balance.</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Evaluation & Conclusion</h2>
-        <p>
-          The project successfully met its objectives of accessibility, cultural representation, 
-          and engaging gameplay. Feedback scores averaged 4/5, with refinements planned for future iterations.
-        </p>
-      </section>
-      
-      <section>
-        <h2 className="text-2xl font-semibold">Gameplay Videos</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <h3 className="text-xl font-semibold">Level 1: Enemy Interaction</h3>
-            <video className="w-full rounded-lg" controls>
-              <source src="/videos/level1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">Level 2: Wind Zones</h3>
-            <video className="w-full rounded-lg" controls>
-              <source src="/videos/level2.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caerdydd Dragon - A Puzzle Platformer</title>
+</head>
+<body>
+    <h1>Caerdydd Dragon - A Puzzle Platformer</h1>
+
+    <h2>Overview</h2>
+    <p>Caerdydd Dragon is a 2D puzzle platformer inspired by the cultural heritage of Wales. The game features the iconic Welsh dragon as the protagonist, navigating through levels set within Cardiff Castle, collecting daffodils along the way. The game emphasises accessibility, smooth movement mechanics, and an engaging difficulty curve while showcasing a strong sense of place and identity tied to its setting. The game was worked on in a group of 4, where all memebers worked on the game mechanics, ethos and story.</p>
+    
+    
+
+    <h2>Project Goals</h2>
+    <ul>
+        <li><strong>Engaging Gameplay:</strong> Provide an intuitive yet challenging experience that balances accessibility with increasing difficulty.</li>
+        <li><strong>Cultural Representation:</strong> Capture the essence of Welsh culture through environment design and character choice.</li>
+        <li><strong>Technical Execution:</strong> Develop a polished platforming system with well-integrated movement, camera, and enemy interactions.</li>
+        <li><strong>Replayability:</strong> Encourage players to return through collectibles and refined mechanics.</li>
+    </ul>
+
+    <h2>Key Features</h2>
+    <ul>
+        <li><strong>Smooth Movement & Camera Mechanics:</strong> Player movement was designed for accessibility, with intuitive controls tested for ease of use.</li>
+        <li><strong>Progressive Difficulty & Level Design:</strong> Two distinct levels, each introducing a new mechanic.</li>
+        <li><strong>Unique Gameplay Elements:</strong> Wind Zones, Collectibles, and Enemy Interactions.</li>
+    </ul>
+
+    <h2>Technical Specifications</h2>
+    <ul>
+        <li><strong>Git Workflow:</strong> Master branch holds the final submission, development branch for ongoing work, and feature branches for isolated implementations.</li>
+        <li><strong>Key Algorithms:</strong> Singleton Pattern, Input Handling, UI Animation System, Camera Control, and Enemy AI.</li>
+    </ul>
+
+    <h2>Playtesting & Feedback</h2>
+    <p>20 playtesters assessed accessibility, mechanics comprehension, and overall enjoyment. Key results:</p>
+    <ul>
+        <li>80% found controls easy to grasp.</li>
+        <li>95% found jumping onto enemies fun.</li>
+        <li>80% enjoyed the Wind Zone but noted its difficulty.</li>
+        <li>Most rated the game’s Welsh theme highly (4-5 on a 5-point scale).</li>
+    </ul>
+
+    <h2>Evaluation & Conclusion</h2>
+    <p>Overall reception was positive, with most feedback scoring 4/5. The game successfully met its objectives of accessibility, cultural representation, and engaging gameplay.</p>
+
+    <h2>Project Videos</h2>
+    <video width="600" controls>
+        <source src="videos/caerdydd-dragon-level1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p>Level 1 - Enemy Interaction</p>
+
+    <video width="600" controls>
+        <source src="videos/caerdydd-dragon-level2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p>Level 2 - Wind Zones</p>
+
+    
+
+    <p><a href="index.html">Back to Portfolio</a></p>
+</body>
+</html>
