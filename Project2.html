@@ -4,66 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caerdydd Dragon - A Puzzle Platformer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #c1272d;
+            border-bottom: 2px solid #c1272d;
+            padding-bottom: 5px;
+        }
+        ul {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        iframe {
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #c1272d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: #a01f22;
+        }
+    </style>
 </head>
 <body>
-    <h1>Caerdydd Dragon - A Puzzle Platformer</h1>
+    <div class="container">
+        <h1>Caerdydd Dragon - A Puzzle Platformer</h1>
 
-    <h2>Overview</h2>
-    <p>
-        <strong>Caerdydd Dragon</strong> is a 2D puzzle platformer inspired by the cultural heritage of Wales. 
-        The game features the iconic Welsh dragon as the protagonist, navigating levels set within Cardiff Castle and collecting daffodils along the way. 
-        Developed in <strong>Unity (C#)</strong>, the game emphasizes accessibility, smooth movement mechanics, and a well-balanced difficulty curve, while showcasing a strong sense of place and identity tied to its setting. 
-        The project was a team effort, with all four members contributing to <strong>game mechanics, story, and overall design.</strong>
-    </p>
+        <h2>Overview</h2>
+        <p>
+            <strong>Caerdydd Dragon</strong> is a 2D puzzle platformer inspired by the cultural heritage of Wales. 
+            The game features the iconic Welsh dragon as the protagonist, navigating levels set within Cardiff Castle and collecting daffodils along the way. 
+            Developed in <strong>Unity (C#)</strong>, the game emphasizes accessibility, smooth movement mechanics, and a well-balanced difficulty curve, while showcasing a strong sense of place and identity tied to its setting. 
+            The project was a team effort, with all four members contributing to <strong>game mechanics, story, and overall design.</strong>
+        </p>
 
-    <h2>Project Goals</h2>
-    <ul>
-        <li><strong>Engaging Gameplay:</strong> Deliver an intuitive yet challenging experience with accessible mechanics.</li>
-        <li><strong>Cultural Representation:</strong> Capture the essence of Welsh culture through art, themes, and level design.</li>
-        <li><strong>Technical Execution:</strong> Implement polished platforming mechanics, responsive controls, and smooth camera handling.</li>
-        <li><strong>Replayability:</strong> Encourage player engagement through collectibles and refined mechanics.</li>
-    </ul>
-	
-	<h2>Gameplay Demos</h2>
-
-    <h3><strong>Level 1 - Enemy Interaction & Movement</strong></h3>
-    <iframe width="600" height="340" src="https://www.youtube.com/embed/4A9UraG0As8" frameborder="0" allowfullscreen></iframe>
-
-    <h3><strong>Level 2 - Wind Zones</strong></h3>
-    <iframe width="600" height="340" src="https://www.youtube.com/embed/evbG-7URnZ4" frameborder="0" allowfullscreen></iframe>
-
+        <h2>Project Goals</h2>
+        <ul>
+            <li><strong>Engaging Gameplay:</strong> Deliver an intuitive yet challenging experience with accessible mechanics.</li>
+            <li><strong>Cultural Representation:</strong> Capture the essence of Welsh culture through art, themes, and level design.</li>
+            <li><strong>Technical Execution:</strong> Implement polished platforming mechanics, responsive controls, and smooth camera handling.</li>
+            <li><strong>Replayability:</strong> Encourage player engagement through collectibles and refined mechanics.</li>
+        </ul>
     
-
-    <h2>Key Features</h2>
-    <ul>
-        <li><strong>Smooth Movement & Camera Mechanics:</strong> Designed for accessibility and tested for intuitive control.</li>
-        <li><strong>Progressive Difficulty & Level Design:</strong> Two levels, each introducing new mechanics.</li>
-        <li><strong>Unique Gameplay Elements:</strong> Wind Zones, Collectibles, and Enemy Interactions.</li>
-    </ul>
-
-    <h2>Technical Specifications</h2>
-    <ul>
-        <li><strong>Engine & Language:</strong> Unity (C#)</li>
-        <li><strong>Git Workflow:</strong> Master branch for final submission, development branch for ongoing work, and feature branches for isolated implementations.</li>
-        <li><strong>Key Algorithms:</strong> Singleton Pattern, Input Handling, UI Animation System, Camera Control, and Enemy AI.</li>
-    </ul>
-
-    <h2>Playtesting & Feedback</h2>
-    <p>20 playtesters provided feedback on accessibility, mechanics comprehension, and overall enjoyment. Key insights:</p>
-    <ul>
-        <li><strong>80%</strong> found controls easy to grasp.</li>
-        <li><strong>95%</strong> enjoyed jumping onto enemies.</li>
-        <li><strong>80%</strong> found the Wind Zone engaging but challenging.</li>
-        <li>Overall, the Welsh theme was well-received, with most players rating it <strong>4-5/5.</strong></li>
-    </ul>
-
-    <h2>Evaluation & Conclusion</h2>
-    <p>
-        The game received positive feedback, achieving an overall score of <strong>4/5</strong> across key metrics. 
-        It successfully met its objectives of accessibility, cultural representation, and engaging gameplay.
-    </p>
-
-<p><a href="index.html">Back to Portfolio</a></p>
+        <h2>Gameplay Demos</h2>
+        
+        <h3><strong>Level 1 - Enemy Interaction & Movement</strong></h3>
+        <iframe width="600" height="340" src="https://www.youtube.com/embed/4A9UraG0As8" frameborder="0" allowfullscreen></iframe>
     
+        <h3><strong>Level 2 - Wind Zones</strong></h3>
+        <iframe width="600" height="340" src="https://www.youtube.com/embed/evbG-7URnZ4" frameborder="0" allowfullscreen></iframe>
+    
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Smooth Movement & Camera Mechanics:</strong> Designed for accessibility and tested for intuitive control.</li>
+            <li><strong>Progressive Difficulty & Level Design:</strong> Two levels, each introducing new mechanics.</li>
+            <li><strong>Unique Gameplay Elements:</strong> Wind Zones, Collectibles, and Enemy Interactions.</li>
+        </ul>
+    
+        <h2>Technical Specifications</h2>
+        <ul>
+            <li><strong>Engine & Language:</strong> Unity (C#)</li>
+            <li><strong>Git Workflow:</strong> Master branch for final submission, development branch for ongoing work, and feature branches for isolated implementations.</li>
+            <li><strong>Key Algorithms:</strong> Singleton Pattern, Input Handling, UI Animation System, Camera Control, and Enemy AI.</li>
+        </ul>
+    
+        <h2>Playtesting & Feedback</h2>
+        <p>20 playtesters provided feedback on accessibility, mechanics comprehension, and overall enjoyment. Key insights:</p>
+        <ul>
+            <li><strong>80%</strong> found controls easy to grasp.</li>
+            <li><strong>95%</strong> enjoyed jumping onto enemies.</li>
+            <li><strong>80%</strong> found the Wind Zone engaging but challenging.</li>
+            <li>Overall, the Welsh theme was well-received, with most players rating it <strong>4-5/5.</strong></li>
+        </ul>
+    
+        <h2>Evaluation & Conclusion</h2>
+        <p>
+            The game received positive feedback, achieving an overall score of <strong>4/5</strong> across key metrics. 
+            It successfully met its objectives of accessibility, cultural representation, and engaging gameplay.
+        </p>
+    
+        <p><a href="index.html">Back to Portfolio</a></p>
+    </div>
 </body>
 </html>
