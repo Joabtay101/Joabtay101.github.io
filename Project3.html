@@ -68,7 +68,7 @@
     <section>
       <h2>Project Overview</h2>
       <p>
-        This project explores the implementation of animated textures in OpenGL, a crucial feature for creating visually dynamic scenes in real-time applications such as video games and simulations. The goal was to integrate texture animations efficiently while considering performance constraints and graphical fidelity.
+        This project focused on using GPU programming techniques to build visually dynamic and efficient 3D environments in C++ using OpenGL. The core challenge was to implement animated textures and optimize rendering workflows using shaders and texture atlas manipulation. The project emphasized learning real-time graphics concepts while producing a scalable solution adaptable for use in games, simulations, or interactive environments.
       </p>
     </section>
 
@@ -85,37 +85,50 @@
     <section>
       <h2>Project Goals</h2>
       <ul>
-        <li>Implement a system to animate textures using shaders and UV manipulation</li>
-        <li>Maintain high performance and smooth frame rates</li>
-        <li>Allow flexible animation playback for sprite sheets and scrolling textures</li>
+        <li>Explore GPU-powered animation using fragment and vertex shaders</li>
+        <li>Implement animated textures using texture atlases and shader logic</li>
+        <li>Ensure real-time rendering performance with minimal overhead</li>
+        <li>Build a reusable system adaptable to different visual assets</li>
       </ul>
     </section>
 
     <section>
       <h2>Implementation Details</h2>
       <ul>
-        <li>Used <code>stb_image</code> to load and bind textures in OpenGL</li>
-        <li>Wrote GLSL shaders to animate textures through texture atlas manipulation</li>
-        <li>Updated UV coordinates in real-time based on timing or input</li>
-        <li>Optimized texture binding to reduce redundant GPU overhead</li>
+        <li>Used <code>stb_image</code> for texture loading and binding</li>
+        <li>Wrote custom GLSL shaders to manipulate UV coordinates for animation</li>
+        <li>Built a timing system to sync animation frames with real-time rendering</li>
+        <li>Minimized draw calls and texture switches to boost efficiency</li>
+        <li>Experimented with multiple animation types such as frame cycling and scrolling backgrounds</li>
       </ul>
     </section>
 
     <section>
       <h2>Challenges Faced</h2>
       <ul>
-        <li>Managing UV precision to avoid visual artifacts</li>
-        <li>Ensuring animation timing aligned with frame updates</li>
-        <li>Reducing texture memory footprint while maintaining fidelity</li>
+        <li>Precisely calculating UV offsets to avoid texture bleeding</li>
+        <li>Debugging shader behavior and verifying frame transitions in real time</li>
+        <li>Managing GPU memory efficiently to allow scalable asset use</li>
       </ul>
     </section>
 
     <section>
       <h2>Results</h2>
       <ul>
-        <li>Created a reusable animated texture system adaptable to different asset types</li>
-        <li>Achieved real-time performance with visually smooth animations</li>
-        <li>Laid the foundation for scalable rendering enhancements in future projects</li>
+        <li>Successfully built an animated texture system suitable for real-time 3D environments</li>
+        <li>Developed a deeper understanding of how shaders interact with GPU pipelines</li>
+        <li>Gained experience with performance profiling and memory optimization in OpenGL</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Transferable Skills Gained</h2>
+      <ul>
+        <li>Strong foundation in GPU programming and real-time graphics principles</li>
+        <li>Experience using low-level APIs and debugging graphical issues</li>
+        <li>Efficient problem-solving in technical environments with performance constraints</li>
+        <li>Comfortable with C++ development and integrating third-party libraries</li>
+        <li>Ability to communicate technical processes and visual results clearly</li>
       </ul>
     </section>
 
@@ -133,7 +146,7 @@
     <section>
       <h2>Conclusion</h2>
       <p>
-        This project showcases the integration of GPU-powered animated textures in OpenGL, enabling richer, more dynamic environments. Future improvements include adding interpolation for smoother animation and expanding the system to support skeletal or particle animation systems.
+        Through this project, I gained hands-on experience with core GPU programming techniques and real-time rendering workflows using OpenGL. Implementing animated textures from scratch gave me practical insight into shaders, memory optimization, and visual polish. These skills are directly applicable to any tech role involving real-time systems, interactive visuals, or performance-sensitive programming.
       </p>
     </section>
 
