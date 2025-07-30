@@ -1,18 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating Virtual Worlds using the GPU</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px; }
-    h1 { color: #333; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      color: #333;
+      border-left: 5px solid #007BFF;
+      padding-left: 10px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      line-height: 1.6;
+    }
+    .media-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .media-container img, .video-placeholder {
+      width: 45%;
+      height: 200px;
+      background: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      .media-container img, .video-placeholder {
+        width: 100%;
+      }
+    }
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1>Creating Virtual Worlds using the GPU</h1>
-  <p>Using C++ and OpenGL to implement key aspects of a 3D game environment.</p>
-  <p>More details coming soon.</p>
-  <a href="index.html">Back to Portfolio</a>
+  <div class="container">
+    <h1>Creating Virtual Worlds using the GPU</h1>
+
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project explores the implementation of animated textures in OpenGL, a crucial feature for creating visually dynamic scenes in real-time applications such as video games and simulations. The goal was to integrate texture animations efficiently while considering performance constraints and graphical fidelity.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technologies Used</h2>
+      <ul>
+        <li><strong>Programming Language:</strong> C++</li>
+        <li><strong>Graphics API:</strong> OpenGL</li>
+        <li><strong>Libraries:</strong> GLAD, GLFW, GLM, stb_image</li>
+        <li><strong>Environment:</strong> Visual Studio</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Project Goals</h2>
+      <ul>
+        <li>Implement a system to animate textures using shaders and UV manipulation</li>
+        <li>Maintain high performance and smooth frame rates</li>
+        <li>Allow flexible animation playback for sprite sheets and scrolling textures</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation Details</h2>
+      <ul>
+        <li>Used <code>stb_image</code> to load and bind textures in OpenGL</li>
+        <li>Wrote GLSL shaders to animate textures through texture atlas manipulation</li>
+        <li>Updated UV coordinates in real-time based on timing or input</li>
+        <li>Optimized texture binding to reduce redundant GPU overhead</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Challenges Faced</h2>
+      <ul>
+        <li>Managing UV precision to avoid visual artifacts</li>
+        <li>Ensuring animation timing aligned with frame updates</li>
+        <li>Reducing texture memory footprint while maintaining fidelity</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <ul>
+        <li>Created a reusable animated texture system adaptable to different asset types</li>
+        <li>Achieved real-time performance with visually smooth animations</li>
+        <li>Laid the foundation for scalable rendering enhancements in future projects</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Media</h2>
+      <div class="media-container">
+        <div class="video-placeholder">Video Placeholder</div>
+        <img src="placeholder1.jpg" alt="Screenshot 1 - Texture Animation Demo">
+        <img src="placeholder2.jpg" alt="Screenshot 2 - Texture Loading Example">
+        <img src="placeholder3.jpg" alt="Screenshot 3 - Shader Implementation">
+        <img src="placeholder4.jpg" alt="Screenshot 4 - Animation Performance">
+      </div>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        This project showcases the integration of GPU-powered animated textures in OpenGL, enabling richer, more dynamic environments. Future improvements include adding interpolation for smoother animation and expanding the system to support skeletal or particle animation systems.
+      </p>
+    </section>
+
+    <a class="back-link" href="index.html">← Back to Portfolio</a>
+  </div>
 </body>
 </html>
