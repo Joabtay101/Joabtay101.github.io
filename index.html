@@ -1,116 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My University Project Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joab Taylor — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7FAFA;
+      --ink: #1A1A1A;
+      --ink-muted: #888;
+      --ink-faint: #B8C8C8;
+      --accent: #1B9E8E;
+      --accent-light: rgba(27, 158, 142, 0.09);
+      --card-bg: #FFFFFF;
+      --border: #DDE8E8;
+      --hero-tint: rgba(27, 158, 142, 0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    h1 {
-      margin-top: 50px;
-      font-size: 36px;
-      color: #333;
-    }
-
-    .projects-container {
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1200px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      padding: 12rem 4rem 6rem;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 20px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards 0.1s;
+      background: radial-gradient(ellipse 60% 60% at 10% 50%, var(--hero-tint) 0%, transparent 70%);
     }
 
-    .project {
-      flex: 1 1 calc(50% - 40px); /* Ensures two columns with space */
-      max-width: 500px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      box-sizing: border-box;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    .project:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
-    .project img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: opacity 0.3s ease-in-out;
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--ink-muted);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
     }
 
-    .project h2 {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 15px;
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .project p {
-      font-size: 1rem;
-      color: #555;
+    .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-cta svg { transition: transform 0.2s; }
+    .hero-cta:hover svg { transform: translateX(4px); }
+
+    /* DIVIDER LINE */
+    .section-divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      border-top: 1px solid var(--border);
     }
 
-    .project a {
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding: 2.5rem 0 2rem;
+    }
+
+    /* PROJECTS */
+    .projects-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 4rem 8rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      padding: 2.8rem;
       text-decoration: none;
       color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
     }
 
-    @media screen and (max-width: 768px) {
-      .project {
-        flex: 1 1 100%; /* Stack projects on smaller screens */
-      }
+    .project-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover { background: #FAFAF8; }
+    .project-card:hover::after { transform: scaleX(1); }
+
+    .project-thumb-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-thumb { transform: scale(1.04); }
+
+    .project-thumb-placeholder {
+      width: 100%;
+      height: 200px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .tag.secondary {
+      color: var(--ink-muted);
+      background: var(--bg);
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .project-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .project-card:hover .project-link { color: var(--accent); }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
+      padding: 4rem;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .skills-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .skill-name { font-weight: 500; color: var(--ink); }
+    .skill-tech { color: var(--ink-muted); font-size: 0.78rem; }
+
+    /* FOOTER */
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.35s; }
+    .delay-3 { animation-delay: 0.5s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 10rem 1.5rem 5rem; }
+      .section-divider, .projects-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-strip { padding: 3rem 1.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <h1>My University Project Portfolio</h1>
- 
-  <div class="projects-container">
-    <div class="project">
-      <h2>Computational Intelligence Project</h2>
-      <a href="Project1.html">
-        <img src="images/project1-thumbnail.jpg" alt="Garment Productivity Prediction Thumbnail">
-      </a>
-      <p>Using Python to develop and evaluate predictive models for garment employee productivity.</p>
-    </div>
 
-    <div class="project">
-      <h2>Designing and Implementing Game Mechanics</h2>
-      <a href="Project2.html">
-        <img src="images/project2-thumbnail.jpg" alt="Game Mechanics Thumbnail">
-      </a>
-      <p>Using C# in Unity to design and implement game mechanics based on a provided brief.</p>
-    </div>
+  <nav>
+    <a class="nav-name" href="#">Joab Taylor</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-    <div class="project">
-      <h2>Creating Virtual Worlds using the GPU</h2>
-      <a href="Project3.html">
-        <img src="images/project3-thumbnail.jpg" alt="Virtual Worlds Thumbnail">
-      </a>
-      <p>Using C++ and OpenGL to implement key aspects of a 3D game environment.</p>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-tag">Game Designer & Developer</p>
+    <p class="hero-desc">
+      BSc Computer Game Design & Development graduate with hands-on experience in Unity, C++, OpenGL, and Python — from designing accessible puzzle platformers to writing GPU shaders from scratch.
+    </p>
+    <a class="hero-cta" href="#work">
+      View Projects
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
 
-    <div class="project">
-      <h2>Developing Quality Software & Systems</h2>
-      <a href="Project4.html">
-        <img src="images/project4-thumbnail.jpg" alt="Software Systems Thumbnail">
-      </a>
-      <p>Using MIT App Inventor to develop an Android app prototype with user authentication, settings customisation, and structured activity menus.</p>
-    </div>
+  <!-- PROJECTS -->
+  <div class="section-divider">
+    <p class="section-label">Selected Work</p>
   </div>
+
+  <section class="projects-section" id="work">
+    <div class="projects-grid">
+
+      <!-- Project 1: Caerdydd Dragon -->
+      <a class="project-card fade-in delay-1" href="Project2.html">
+        <div class="project-thumb-wrap">
+          <img class="project-thumb" src="https://joabtay101.github.io/images/project2-thumbnail.jpg" alt="Caerdydd Dragon"/>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Unity · C#</span>
+          <span class="tag secondary">Team Project</span>
+        </div>
+        <h2 class="project-title">Caerdydd Dragon</h2>
+        <p class="project-desc">
+          A 2D puzzle platformer set in Cardiff Castle, built with a team of four. Designed for accessibility, playtested with 20 participants, and shaped by real player feedback at every stage.
+        </p>
+        <span class="project-link">
+          View Project
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Project 2: OpenGL -->
+      <a class="project-card fade-in delay-2" href="Project3.html">
+        <div class="project-thumb-wrap">
+          <img class="project-thumb" src="https://joabtay101.github.io/images/project3-thumbnail.jpg" alt="Virtual Worlds"/>
+        </div>
+        <div class="project-tags">
+          <span class="tag">C++ · OpenGL</span>
+          <span class="tag secondary">Graphics Programming</span>
+        </div>
+        <h2 class="project-title">Virtual Worlds Using the GPU</h2>
+        <p class="project-desc">
+          Real-time 3D environment built from scratch using custom GLSL shaders, texture atlas animation, and GPU memory optimisation — no engine, just code.
+        </p>
+        <span class="project-link">
+          View Project
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Project 3: ML -->
+      <a class="project-card fade-in delay-3" href="Project1.html">
+        <div class="project-thumb-wrap">
+          <img class="project-thumb" src="https://joabtay101.github.io/images/project1-thumbnail.jpg" alt="Computational Intelligence"/>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python · Keras</span>
+          <span class="tag secondary">Machine Learning</span>
+        </div>
+        <h2 class="project-title">Computational Intelligence</h2>
+        <p class="project-desc">
+          Trained and compared neural network and Random Forest models for classification. Skills directly applicable to game AI, player behaviour analysis, and adaptive difficulty systems.
+        </p>
+        <span class="project-link">
+          View Project
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Dissertation card -->
+      <a class="project-card fade-in delay-3" href="Project4.html">
+        <div class="project-thumb-placeholder" style="background: var(--accent-light); border-color: var(--border);">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect x="9" y="6" width="26" height="32" rx="2" stroke="#1B9E8E" stroke-width="1.5" opacity="0.5"/>
+            <path d="M14 15h16M14 21h16M14 27h10" stroke="#1B9E8E" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Research</span>
+          <span class="tag secondary">Dissertation</span>
+        </div>
+        <h2 class="project-title">Gamification in Education Technology</h2>
+        <p class="project-desc">
+          Final year dissertation exploring how game design mechanics — reward loops, progression systems, and challenge-feedback cycles — improve learner engagement in EdTech contexts.
+        </p>
+        <span class="project-link">
+          View Dissertation
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-strip" id="about">
+    <div class="about-inner">
+      <div>
+        <h2 class="about-heading">Graduate game<br>developer based<br>in the UK.</h2>
+        <p class="about-text">
+          I studied Computer Game Design and Development, graduating with a BSc and a focus on both the creative and technical sides of making games — from mechanic design and playtesting to shader programming and machine learning.
+          <br><br>
+          I'm looking for my first role in the games industry, where I can contribute across design and development.
+        </p>
+      </div>
+      <div>
+        <ul class="skills-list">
+          <li>
+            <span class="skill-name">Game Development</span>
+            <span class="skill-tech">Unity · C#</span>
+          </li>
+          <li>
+            <span class="skill-name">Graphics Programming</span>
+            <span class="skill-tech">C++ · OpenGL · GLSL</span>
+          </li>
+          <li>
+            <span class="skill-name">Game Design</span>
+            <span class="skill-tech">Mechanics · Playtesting · Level Design</span>
+          </li>
+          <li>
+            <span class="skill-name">Machine Learning</span>
+            <span class="skill-tech">Python · Keras · Scikit-learn</span>
+          </li>
+          <li>
+            <span class="skill-name">Version Control</span>
+            <span class="skill-tech">Git · Feature Branching</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-name">Joab Taylor</span>
+    <span class="footer-note">BSc Computer Game Design & Development</span>
+  </footer>
+
 </body>
 </html>
-

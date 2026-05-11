@@ -1,115 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caerdydd Dragon - A Puzzle Platformer</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #c1272d;
-            border-bottom: 2px solid #c1272d;
-            padding-bottom: 5px;
-        }
-        ul {
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        iframe {
-            display: block;
-            margin: 10px auto;
-            border-radius: 5px;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background: #c1272d;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background: #a01f22;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caerdydd Dragon — Joab Taylor</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7FAFA;
+      --ink: #1A1A1A;
+      --ink-muted: #888;
+      --ink-faint: #B8C8C8;
+      --accent: #1B9E8E;
+      --accent-light: rgba(27, 158, 142, 0.09);
+      --card-bg: #FFFFFF;
+      --border: #DDE8E8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* HERO BAND */
+    .page-hero {
+      margin-top: 64px;
+      padding: 5rem 4rem 3.5rem;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.22rem 0.65rem;
+      border-radius: 2px;
+    }
+
+    .tag.secondary {
+      color: var(--ink-muted);
+      background: var(--bg);
+    }
+
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      max-width: 620px;
+      line-height: 1.75;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 4rem 6rem;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* GOALS GRID */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .goal-card {
+      background: var(--card-bg);
+      padding: 1.4rem 1.6rem;
+    }
+
+    .goal-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .goal-text {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 1rem 0;
+    }
+
+    .stat {
+      background: var(--card-bg);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* FEATURES LIST */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .features-list li {
+      padding: 1rem 1.4rem;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .features-list li:last-child { border-bottom: none; }
+
+    .features-list li strong {
+      color: var(--ink);
+      font-weight: 500;
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+
+    /* VIDEO EMBEDS */
+    .video-block {
+      margin: 1rem 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .video-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-block iframe {
+      display: block;
+      width: 100%;
+      height: 360px;
+      border: none;
+    }
+
+    /* CONCLUSION BOX */
+    .conclusion-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 1.6rem 2rem;
+      border-radius: 0 4px 4px 0;
+      margin-top: 1rem;
+    }
+
+    .conclusion-box p {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* BOTTOM NAV */
+    .bottom-nav {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .page-hero { padding: 4rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem 4rem; }
+      .goals-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+      .features-list li { flex-direction: column; gap: 0.2rem; }
+      .features-list li strong { min-width: unset; }
+      .bottom-nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Caerdydd Dragon - A Puzzle Platformer</h1>
 
-        <h2>Overview</h2>
-        <p>
-            <strong>Caerdydd Dragon</strong> is a 2D puzzle platformer inspired by the cultural heritage of Wales. 
-            The game features the iconic Welsh dragon as the protagonist, navigating levels set within Cardiff Castle and collecting daffodils along the way. 
-            Developed in <strong>Unity (C#)</strong>, the game emphasizes accessibility, smooth movement mechanics, and a well-balanced difficulty curve, while showcasing a strong sense of place and identity tied to its setting. 
-            The project was a team effort, with all four members contributing to <strong>game mechanics, story, and overall design.</strong>
-        </p>
+  <nav>
+    <a class="nav-name" href="index.html">Joab Taylor</a>
+    <a class="nav-back" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+        <path d="M13 7H1M7 13L1 7l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All Projects
+    </a>
+  </nav>
 
-        <h2>Project Goals</h2>
-        <ul>
-            <li><strong>Engaging Gameplay:</strong> Deliver an intuitive yet challenging experience with accessible mechanics.</li>
-            <li><strong>Cultural Representation:</strong> Capture the essence of Welsh culture through art, themes, and level design.</li>
-            <li><strong>Technical Execution:</strong> Implement polished platforming mechanics, responsive controls, and smooth camera handling.</li>
-            <li><strong>Replayability:</strong> Encourage player engagement through collectibles and refined mechanics.</li>
-        </ul>
-    
-        <h2>Gameplay Demos</h2>
-        
-        <h3><strong>Level 1 - Enemy Interaction & Movement</strong></h3>
-        <iframe width="600" height="340" src="https://www.youtube.com/embed/4A9UraG0As8" frameborder="0" allowfullscreen></iframe>
-    
-        <h3><strong>Level 2 - Wind Zones</strong></h3>
-        <iframe width="600" height="340" src="https://www.youtube.com/embed/evbG-7URnZ4" frameborder="0" allowfullscreen></iframe>
-    
-        <h2>Key Features</h2>
-        <ul>
-            <li><strong>Smooth Movement & Camera Mechanics:</strong> Designed for accessibility and tested for intuitive control.</li>
-            <li><strong>Progressive Difficulty & Level Design:</strong> Two levels, each introducing new mechanics.</li>
-            <li><strong>Unique Gameplay Elements:</strong> Wind Zones, Collectibles, and Enemy Interactions.</li>
-        </ul>
-    
-        <h2>Technical Specifications</h2>
-        <ul>
-            <li><strong>Engine & Language:</strong> Unity (C#)</li>
-            <li><strong>Git Workflow:</strong> Master branch for final submission, development branch for ongoing work, and feature branches for isolated implementations.</li>
-            <li><strong>Key Algorithms:</strong> Singleton Pattern, Input Handling, UI Animation System, Camera Control, and Enemy AI.</li>
-        </ul>
-    
-        <h2>Playtesting & Feedback</h2>
-        <p>20 playtesters provided feedback on accessibility, mechanics comprehension, and overall enjoyment. Key insights:</p>
-        <ul>
-            <li><strong>80%</strong> found controls easy to grasp.</li>
-            <li><strong>95%</strong> enjoyed jumping onto enemies.</li>
-            <li><strong>80%</strong> found the Wind Zone engaging but challenging.</li>
-            <li>Overall, the Welsh theme was well-received, with most players rating it <strong>4-5/5.</strong></li>
-        </ul>
-    
-        <h2>Evaluation & Conclusion</h2>
-        <p>
-            From a playtesting point of view the game received positive feedback, achieving an overall score of <strong>4/5</strong> across key metrics. 
-            From a creators point of view we successfully met the objectives we had oringinally set of accessibility, cultural representation, and engaging gameplay, and as a group we were very happy with the result in the limited time frame we had. 
-			Therefore although we saw room for improvement if we were to work on the game down the line, we saw the conclusion of the project as an overall success!
-        </p>
-    
-        <p><a href="index.html">Back to Portfolio</a></p>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-tags">
+        <span class="tag">Unity · C#</span>
+        <span class="tag secondary">Team Project</span>
+        <span class="tag secondary">Game Design</span>
+      </div>
+      <h1 class="page-title">Caerdydd Dragon</h1>
+      <p class="page-subtitle">A 2D puzzle platformer set within Cardiff Castle, featuring the Welsh dragon as protagonist. Built in Unity (C#) with a team of four, with a focus on accessibility, cultural identity, and playtested mechanics.</p>
     </div>
+  </div>
+
+  <div class="content">
+
+    <!-- OVERVIEW -->
+    <div class="section">
+      <h2 class="section-heading">Overview</h2>
+      <p>Caerdydd Dragon is a 2D puzzle platformer inspired by the cultural heritage of Wales. The game features the iconic Welsh dragon navigating levels set within Cardiff Castle, collecting daffodils along the way. The project was a full team effort across all four members, covering game mechanics, story, and overall design — delivered within a fixed timeframe.</p>
+    </div>
+
+    <!-- GOALS -->
+    <div class="section">
+      <h2 class="section-heading">Project Goals</h2>
+      <div class="goals-grid">
+        <div class="goal-card">
+          <p class="goal-label">Gameplay</p>
+          <p class="goal-text">Deliver an intuitive yet challenging experience with accessible mechanics for a wide range of players.</p>
+        </div>
+        <div class="goal-card">
+          <p class="goal-label">Cultural Identity</p>
+          <p class="goal-text">Capture the essence of Welsh culture through art, themes, and level design rooted in real Cardiff landmarks.</p>
+        </div>
+        <div class="goal-card">
+          <p class="goal-label">Technical Execution</p>
+          <p class="goal-text">Implement polished platforming mechanics, responsive controls, and smooth camera handling.</p>
+        </div>
+        <div class="goal-card">
+          <p class="goal-label">Replayability</p>
+          <p class="goal-text">Encourage player engagement through collectibles, difficulty progression, and refined mechanics.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMEPLAY DEMOS -->
+    <div class="section">
+      <h2 class="section-heading">Gameplay Demos</h2>
+      <div class="video-block">
+        <p class="video-label">Level 1 — Enemy Interaction & Movement</p>
+        <iframe src="https://www.youtube.com/embed/4A9UraG0As8" allowfullscreen></iframe>
+      </div>
+      <div class="video-block" style="margin-top: 1rem;">
+        <p class="video-label">Level 2 — Wind Zones</p>
+        <iframe src="https://www.youtube.com/embed/evbG-7URnZ4" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- KEY FEATURES -->
+    <div class="section">
+      <h2 class="section-heading">Key Features</h2>
+      <ul class="features-list">
+        <li><strong>Movement & Camera</strong> Smooth, accessible player movement with a camera system tested for intuitive feel across all skill levels.</li>
+        <li><strong>Progressive Difficulty</strong> Two levels each introducing new mechanics — ensuring a natural learning curve for players.</li>
+        <li><strong>Wind Zones</strong> A unique environmental mechanic adding challenge and variety to level traversal.</li>
+        <li><strong>Enemy Interactions</strong> Jump-on enemy collision system that rewards skillful play.</li>
+        <li><strong>Collectibles</strong> Daffodil collectibles spread across levels to encourage exploration and replayability.</li>
+      </ul>
+    </div>
+
+    <!-- TECHNICAL -->
+    <div class="section">
+      <h2 class="section-heading">Technical Specifications</h2>
+      <ul class="features-list">
+        <li><strong>Engine & Language</strong> Unity with C# scripting throughout.</li>
+        <li><strong>Git Workflow</strong> Master branch for final submission, development branch for ongoing work, feature branches for isolated implementations.</li>
+        <li><strong>Singleton Pattern</strong> Used for global state management across scenes.</li>
+        <li><strong>UI Animation System</strong> Modular and reusable across multiple scenes.</li>
+        <li><strong>Enemy AI</strong> Patrol and collision-response behaviours implemented per enemy type.</li>
+      </ul>
+    </div>
+
+    <!-- PLAYTESTING -->
+    <div class="section">
+      <h2 class="section-heading">Playtesting & Feedback</h2>
+      <p>20 participants playtested the game across both levels, providing structured feedback on accessibility, mechanics comprehension, and overall enjoyment.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <p class="stat-num">80%</p>
+          <p class="stat-label">Found controls easy to grasp immediately</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">95%</p>
+          <p class="stat-label">Enjoyed the enemy jump interaction</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">4/5</p>
+          <p class="stat-label">Overall satisfaction score across key metrics</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem;">The Welsh cultural theme was well-received, with most players rating the overall experience 4–5 out of 5. The Wind Zone was noted as engaging but appropriately challenging — a deliberate design balance.</p>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="section">
+      <h2 class="section-heading">Evaluation & Conclusion</h2>
+      <div class="conclusion-box">
+        <p>We successfully met our original objectives of accessibility, cultural representation, and engaging gameplay — and as a team we were proud of what we delivered within the time constraints. Playtesting confirmed the design held up with real players, and while we identified areas for future iteration, we considered the project a clear success.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a class="back-link" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+        <path d="M13 7H1M7 13L1 7l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Portfolio
+    </a>
+  </div>
+
+  <footer>
+    <span class="footer-name">Joab Taylor</span>
+    <span class="footer-note">BSc Computer Game Design & Development</span>
+  </footer>
+
 </body>
 </html>

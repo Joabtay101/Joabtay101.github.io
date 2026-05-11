@@ -1,144 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Computational Intelligence Project - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Computational Intelligence — Joab Taylor</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7FAFA;
+      --ink: #1A1A1A;
+      --ink-muted: #888;
+      --ink-faint: #B8C8C8;
+      --accent: #1B9E8E;
+      --accent-light: rgba(27, 158, 142, 0.09);
+      --card-bg: #FFFFFF;
+      --border: #DDE8E8;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+
+    .nav-back {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    .page-hero {
+      margin-top: 64px;
+      padding: 5rem 4rem 3.5rem;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero-inner { max-width: 900px; margin: 0 auto; }
+
+    .page-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+
+    .tag {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); background: var(--accent-light);
+      padding: 0.22rem 0.65rem; border-radius: 2px;
+    }
+    .tag.secondary { color: var(--ink-muted); background: var(--bg); }
+
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; line-height: 1.15; margin-bottom: 1rem;
+    }
+
+    .page-subtitle { font-size: 1rem; color: var(--ink-muted); max-width: 620px; line-height: 1.75; }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 4rem 4rem 6rem; }
+    .section { margin-bottom: 3.5rem; }
+
+    .section-heading {
+      font-family: 'DM Serif Display', serif; font-size: 1.4rem;
+      font-weight: 400; color: var(--ink); margin-bottom: 1rem;
+      padding-left: 1rem; border-left: 3px solid var(--accent);
+    }
+
+    .section p { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 0.8rem; }
+
+    /* PIPELINE STEPS */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .pipeline-step {
+      background: var(--card-bg);
+      padding: 1.3rem 1.6rem;
+      display: flex;
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--accent-light);
+      line-height: 1;
+      min-width: 2rem;
+      color: var(--ink-faint);
+    }
+
+    .step-content h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
       margin: 0;
-      padding: 20px; /* Adds space around the entire page */
-      color: #333;
     }
 
-    h1, h2 {
-      color: #2c3e50;
+    /* IMAGE BLOCK */
+    .image-block {
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--card-bg);
     }
 
-    h2 {
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 5px;
-    }
-
-    p {
-      margin: 20px 0;
-    }
-
-    ul {
-      list-style-type: square;
-      margin-left: 20px;
-    }
-
-    img {
-      display: block;
-      margin: 20px auto;
-      max-width: 100%;
+    .image-block img {
+      width: 100%;
       height: auto;
+      display: block;
     }
 
-    a {
-      color: #2980b9;
+    .image-caption {
+      padding: 0.75rem 1.2rem;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* TAKEAWAYS */
+    .takeaway-list {
+      list-style: none;
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .takeaway-list li {
+      padding: 1rem 1.4rem;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .takeaway-list li:last-child { border-bottom: none; }
+
+    .takeaway-list li::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px; min-width: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.55rem;
+    }
+
+    /* CTA LINK */
+    .doc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
       text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 0.7rem 1.2rem;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .doc-link:hover { background: var(--accent); color: white; }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 1.6rem 2rem;
+      border-radius: 0 4px 4px 0;
+      margin-top: 1rem;
     }
+
+    .conclusion-box p { font-size: 0.95rem; color: var(--ink); line-height: 1.8; margin: 0; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 2rem 4rem; max-width: 900px; margin: 0 auto; }
+
+    .back-link {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
 
     footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 4px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;  /* Ensures it starts from the very left */
-  width: 100vw; /* Makes sure it spans the entire width */
-  font-size: 14px;
-}
+      border-top: 1px solid var(--border); padding: 2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
 
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 0.9rem; color: var(--ink-muted); }
+    .footer-note { font-size: 0.75rem; color: var(--ink-faint); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .page-hero { padding: 4rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem 4rem; }
+      .pipeline-step { flex-direction: column; gap: 0.4rem; }
+      .bottom-nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
-  <section>
-    <h2>Project Overview</h2>
-    <p>
-      This project involved developing machine learning models to classify garment employee productivity as satisfactory or unsatisfactory. 
-      The challenge was to handle an imbalanced dataset and identify key factors influencing productivity. I used Python with libraries such as NumPy, 
-      Keras, and Matplotlib for data preprocessing, model training, and results analysis. The end goal was to implement a model that could be deployed 
-      in a real-world setting to aid decision-making in garment factories.
-    </p>
-  </section>
+  <nav>
+    <a class="nav-name" href="index.html">Joab Taylor</a>
+    <a class="nav-back" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+        <path d="M13 7H1M7 13L1 7l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All Projects
+    </a>
+  </nav>
 
-  <section>
-    <h2>Data Preprocessing & Feature Engineering</h2>
-    <p>
-      The dataset included various workplace metrics such as efficiency, overtime hours, and department type. I handled missing values, 
-      normalised numerical features, and encoded categorical data to ensure optimal model performance. A major part of this stage was to 
-      apply feature engineering, creating new variables and transforming existing ones to better capture patterns in the data.
-    </p>
-    <h3>Feature Distributions</h3>
-    <p>
-      The bar graphs below visualise the distributions of features in the dataset after preprocessing and preparing the data for modelling. 
-      These feature distributions were key in understanding the structure of the data and helped inform the model-building process.
-    </p>
-    <img src="images/project1-bargraphs.jpg" alt="Feature Distributions Bar Graphs" width="600">
-  </section>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-tags">
+        <span class="tag">Python · Keras</span>
+        <span class="tag secondary">Machine Learning</span>
+        <span class="tag secondary">Data Analysis</span>
+      </div>
+      <h1 class="page-title">Computational Intelligence</h1>
+      <p class="page-subtitle">Designed, trained, and evaluated machine learning models for binary classification on an imbalanced real-world dataset — using techniques applicable to game AI, player behaviour modelling, and adaptive difficulty systems.</p>
+    </div>
+  </div>
 
-  <section>
-    <h2>Model Development & Evaluation</h2>
-    <p>
-      For model development, I started with a simple neural network architecture built using Keras. This model used one hidden layer with a 
-      ReLU activation function, and dropout layers to prevent overfitting. After experimenting with various hyperparameters such as learning rate 
-      and dropout rate, I explored more advanced models, including Random Forests. The Random Forest classifier outperformed the neural network in 
-      handling imbalanced data and provided better generalisation on unseen data. 
-    </p>
-    <h3>Performance Comparison</h3>
-    <p>
-      The plot below visualises the accuracy, precision, recall, and F1-score of the models tested throughout the project. These metrics were 
-      essential in evaluating the effectiveness of the models and identifying the best-performing approach for classifying employee productivity.
-    </p>
-    <img src="images/project1-model-comparison.jpg" alt="Model Performance Comparison Plot" width="600">
-  </section>
+  <div class="content">
 
-  <section>
-    <h2>Key Takeaways</h2>
-    <ul>
-      <li>Refined my skills in data preprocessing, feature engineering, and model evaluation. I developed a deep understanding of how to 
-          handle real-world datasets, including handling missing data, encoding categorical variables, and normalising numerical features.</li>
-      <li>Gained experience in hyperparameter tuning and optimising deep learning models. Through trial and error, I fine-tuned the neural 
-          network’s architecture and dropout rates to prevent overfitting.</li>
-      <li>Learned to compare multiple machine learning models and select the best one for a given task. The performance of the neural network 
-          was significantly improved by using Random Forest, which is particularly good at handling imbalanced data.</li>
-      <li>Worked with Keras and Scikit-learn, which are powerful tools for building machine learning models and evaluating their performance.</li>
-      <li>Honed my skills in presenting complex results through visualisations, allowing stakeholders to easily interpret key findings and make data-driven decisions.</li>
-    </ul>
-  </section>
+    <div class="section">
+      <h2 class="section-heading">Overview</h2>
+      <p>This project involved building ML models to classify productivity outcomes as satisfactory or unsatisfactory. The key challenge was handling an imbalanced dataset and identifying which features most influenced the outcome — requiring careful preprocessing, model selection, and iterative evaluation.</p>
+    </div>
 
-  <section>
-    <p><strong>Full Code Documentation:</strong></p>
-    <p>
-      You can view the full code and documentation for this project by following the link below:
-    </p>
-    <p><a href="https://drive.google.com/file/d/1K93lBPRse98R3V6xxHN67iIoWAB9gDfg/view?usp=drive_link" target="_blank">
-      Download Full Code Documentation (PDF)
-    </a></p>
-  </section>
+    <div class="section">
+      <h2 class="section-heading">Methodology</h2>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <span class="step-num">01</span>
+          <div class="step-content">
+            <h3>Data Preprocessing & Feature Engineering</h3>
+            <p>Handled missing values, normalised numerical features, and encoded categorical variables. Created new engineered features to better capture patterns in workplace metrics such as efficiency, overtime, and department type.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <span class="step-num">02</span>
+          <div class="step-content">
+            <h3>Neural Network — Keras</h3>
+            <p>Built an initial neural network with a single hidden layer using ReLU activation and dropout regularisation. Tuned hyperparameters including learning rate and dropout rate through iterative experimentation.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <span class="step-num">03</span>
+          <div class="step-content">
+            <h3>Random Forest — Scikit-learn</h3>
+            <p>Benchmarked against a Random Forest classifier, which outperformed the neural network on the imbalanced dataset due to its ensemble approach and stronger generalisation on unseen data.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <span class="step-num">04</span>
+          <div class="step-content">
+            <h3>Evaluation & Visualisation</h3>
+            <p>Compared models across accuracy, precision, recall, and F1-score. Produced clear visualisations of both feature distributions and model performance to communicate findings to a non-technical audience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <section>
-    <p><a href="index.html">Back to Portfolio</a></p>
-  </section>
+    <div class="section">
+      <h2 class="section-heading">Feature Distributions</h2>
+      <p>Bar graphs showing feature distributions after preprocessing, used to understand data structure and inform modelling decisions.</p>
+      <div class="image-block">
+        <img src="images/project1-bargraphs.jpg" alt="Feature Distributions" onerror="this.style.display='none'"/>
+        <p class="image-caption">Feature distributions after preprocessing — key to understanding data structure before modelling</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Model Performance</h2>
+      <p>Comparison of neural network vs. Random Forest across four evaluation metrics.</p>
+      <div class="image-block">
+        <img src="images/project1-model-comparison.jpg" alt="Model Performance Comparison" onerror="this.style.display='none'"/>
+        <p class="image-caption">Accuracy, precision, recall, and F1-score comparison across both models</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Key Takeaways</h2>
+      <ul class="takeaway-list">
+        <li>End-to-end experience with a real-world ML pipeline: preprocessing, feature engineering, training, evaluation, and communication of results</li>
+        <li>Practical understanding of how to handle imbalanced datasets and select models accordingly</li>
+        <li>Hyperparameter tuning through iterative experimentation on neural network architecture and dropout configuration</li>
+        <li>Skills in communicating technical model results visually to non-technical stakeholders</li>
+        <li>These techniques are directly applicable to game AI development, player behaviour segmentation, and adaptive difficulty balancing</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Full Documentation</h2>
+      <p>The complete code, methodology, and analysis are available to view below.</p>
+      <a class="doc-link" href="https://drive.google.com/file/d/1K93lBPRse98R3V6xxHN67iIoWAB9gDfg/view?usp=drive_link" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1v8M3 9l4 4 4-4M1 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        View Code Documentation (PDF)
+      </a>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a class="back-link" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+        <path d="M13 7H1M7 13L1 7l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Portfolio
+    </a>
+  </div>
 
   <footer>
-    <p>© 2025 Joab Taylor - Portfolio</p>
+    <span class="footer-name">Joab Taylor</span>
+    <span class="footer-note">BSc Computer Game Design & Development</span>
   </footer>
 
 </body>
 </html>
-
-
 
