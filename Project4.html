@@ -37,20 +37,28 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(247, 250, 250, 0.92);
+      background: rgba(20, 20, 20, 0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(27, 158, 142, 0.25);
     }
 
-    .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-name:hover { color: var(--accent); }
 
     .nav-back {
       font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none;
       display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--accent); }
+    .nav-back:hover { color: #ffffff; }
 
+    /* PAGE HERO */
     .page-hero {
       margin-top: 64px;
       padding: 5rem 4rem 3.5rem;
@@ -71,12 +79,13 @@
 
     .page-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 400; line-height: 1.15; margin-bottom: 1rem;
     }
 
-    .page-subtitle { font-size: 1rem; color: var(--ink-muted); max-width: 620px; line-height: 1.75; }
+    .page-subtitle { font-size: 1rem; color: var(--ink-muted); max-width: 680px; line-height: 1.75; }
 
+    /* CONTENT */
     .content { max-width: 900px; margin: 0 auto; padding: 4rem 4rem 6rem; }
     .section { margin-bottom: 3.5rem; }
 
@@ -87,43 +96,78 @@
     }
 
     .section p { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 0.8rem; }
+    .section p:last-child { margin-bottom: 0; }
 
-    /* CONCEPT CARDS */
-    .concept-grid {
+    /* STAT ROW */
+    .stats-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 1.2rem 0;
+    }
+
+    .stat {
+      background: var(--card-bg);
+      padding: 1.6rem 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.4; }
+
+    /* METHODOLOGY GRID */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
       margin-top: 1rem;
     }
 
-    .concept-card {
+    .method-card {
+      background: var(--card-bg);
+      padding: 1.5rem 1.6rem;
+    }
+
+    .method-label {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;
+    }
+
+    .method-text { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* FRAMEWORK CARDS */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .framework-card {
       background: var(--card-bg);
       padding: 1.6rem 1.4rem;
-      text-align: center;
     }
 
-    .concept-icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.6rem;
-      display: block;
+    .framework-name {
+      font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem;
     }
 
-    .concept-name {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-    }
+    .framework-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
 
-    .concept-desc {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      line-height: 1.5;
-    }
-
-    /* FINDINGS */
+    /* FINDING LIST */
     .finding-list {
       list-style: none;
       border: 1px solid var(--border);
@@ -131,18 +175,13 @@
     }
 
     .finding-list li {
-      padding: 1.1rem 1.4rem;
-      font-size: 0.9rem;
-      color: var(--ink-muted);
-      line-height: 1.65;
+      padding: 1rem 1.4rem;
+      font-size: 0.9rem; color: var(--ink-muted); line-height: 1.65;
       border-bottom: 1px solid var(--border);
       background: var(--card-bg);
-      display: flex;
-      gap: 0.8rem;
-      align-items: flex-start;
+      display: flex; gap: 0.8rem; align-items: flex-start;
     }
     .finding-list li:last-child { border-bottom: none; }
-
     .finding-list li::before {
       content: '';
       display: inline-block;
@@ -151,18 +190,62 @@
       margin-top: 0.55rem;
     }
 
-    /* RELEVANCE CALLOUT */
-    .relevance-box {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding: 1.6rem 2rem;
-      border-radius: 0 4px 4px 0;
+    /* ARTEFACT FEATURES */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
       margin-top: 1rem;
     }
 
-    .relevance-box p { font-size: 0.95rem; color: var(--ink); line-height: 1.8; margin: 0 0 0.6rem; }
-    .relevance-box p:last-child { margin: 0; }
+    .feature-card {
+      background: var(--card-bg);
+      padding: 1.5rem 1.6rem;
+    }
 
+    .feature-title {
+      font-size: 0.82rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem;
+    }
+
+    .feature-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* CONCLUSION BOX */
+    .conclusion-box {
+      background: #0F1E1C;
+      padding: 2rem 2.4rem;
+      border-radius: 0 4px 4px 0;
+      border-left: 3px solid var(--accent);
+      margin-top: 1rem;
+    }
+
+    .conclusion-box p {
+      font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.85; margin: 0 0 0.8rem;
+    }
+    .conclusion-box p:last-child { margin: 0; }
+    .conclusion-box em { color: var(--accent); font-style: normal; }
+
+    /* VIDEO BLOCK */
+    .video-block {
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .video-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-muted);
+      padding: 0.8rem 1.2rem; border-bottom: 1px solid var(--border);
+    }
+
+    .video-block iframe {
+      display: block; width: 100%; height: 360px; border: none;
+    }
+
+    /* BOTTOM NAV */
     .bottom-nav { border-top: 1px solid var(--border); padding: 2rem 4rem; max-width: 900px; margin: 0 auto; }
 
     .back-link {
@@ -184,7 +267,8 @@
       nav { padding: 1.2rem 1.5rem; }
       .page-hero { padding: 4rem 1.5rem 2.5rem; }
       .content { padding: 2.5rem 1.5rem 4rem; }
-      .concept-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .method-grid, .framework-grid, .feature-grid { grid-template-columns: 1fr; }
       .bottom-nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     }
   </style>
@@ -204,60 +288,148 @@
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="page-tags">
-        <span class="tag">Research</span>
+        <span class="tag">Research · Mixed Methods</span>
         <span class="tag secondary">BSc Dissertation</span>
-        <span class="tag secondary">Game Design</span>
+        <span class="tag secondary">EdTech · Game Design</span>
       </div>
-      <h1 class="page-title">Gamification in Education Technology</h1>
-      <p class="page-subtitle">Final year dissertation exploring how game design mechanics — reward loops, progression systems, and challenge-feedback cycles — can measurably improve learner engagement and outcomes in educational technology contexts.</p>
+      <h1 class="page-title">Exploring the Impact of Gamified Teaching in Educational Technology</h1>
+      <p class="page-subtitle">A mixed-methods research project investigating how gamification mechanics — reward loops, progression systems, and challenge-feedback cycles — influence student engagement, knowledge retention, and academic outcomes. Accompanied by a platform design artefact applying the findings.</p>
     </div>
   </div>
 
   <div class="content">
 
+    <!-- OVERVIEW -->
     <div class="section">
-      <h2 class="section-heading">Research Overview</h2>
-      <p>This dissertation investigated the impact of applying gamification principles to educational technology. The research examined whether game design mechanics borrowed from interactive entertainment could meaningfully increase learner motivation, retention, and performance in digital learning environments.</p>
-      <p>The work sits at the intersection of game design and educational psychology — drawing on both fields to assess what makes gamified learning systems effective, and where they fall short.</p>
+      <h2 class="section-heading">Overview</h2>
+      <p>This dissertation explored the impact of gamified teaching methods in educational technology, assessing their effectiveness in improving engagement and academic performance in post-compulsory education. Using a mixed-methods approach — combining a survey of over 40 participants with qualitative document analysis and observational study — the project gathered firsthand data from both students and educators to evaluate gamification from both sides of the classroom.</p>
+      <p>The research was grounded in three psychological frameworks — Self-Determination Theory, Flow Theory, and Behavioural Economics — to contextualise how and why gamification affects different learners. The findings informed the design of a practical platform concept, the Unified Gamified Learning Platform (UGLP).</p>
     </div>
 
+    <!-- KEY STATS -->
     <div class="section">
-      <h2 class="section-heading">Core Concepts Explored</h2>
-      <div class="concept-grid">
-        <div class="concept-card">
-          <span class="concept-icon">🔁</span>
-          <p class="concept-name">Reward Loops</p>
-          <p class="concept-desc">How variable reward schedules drive continued engagement and habit formation in learners</p>
+      <h2 class="section-heading">Research at a Glance</h2>
+      <div class="stats-row">
+        <div class="stat">
+          <p class="stat-num">40+</p>
+          <p class="stat-label">Survey participants across students & educators</p>
         </div>
-        <div class="concept-card">
-          <span class="concept-icon">📈</span>
-          <p class="concept-name">Progression Systems</p>
-          <p class="concept-desc">The role of visible progress — levels, streaks, unlocks — in sustaining long-term motivation</p>
+        <div class="stat">
+          <p class="stat-num">7.98</p>
+          <p class="stat-label">Mean student perception score out of 10</p>
         </div>
-        <div class="concept-card">
-          <span class="concept-icon">⚡</span>
-          <p class="concept-name">Challenge-Feedback Cycles</p>
-          <p class="concept-desc">Balancing difficulty and feedback to maintain flow states and prevent learner drop-off</p>
+        <div class="stat">
+          <p class="stat-num">100%</p>
+          <p class="stat-label">Of educators observed positive behavioural change with gamification</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">55%</p>
+          <p class="stat-label">Of educators said gamification significantly improves learning outcomes</p>
         </div>
       </div>
     </div>
 
+    <!-- METHODOLOGY -->
+    <div class="section">
+      <h2 class="section-heading">Methodology</h2>
+      <p>A mixed-methods approach was used to capture both quantitative trends and qualitative insight. Ethical approval was obtained from the university before any data collection began.</p>
+      <div class="method-grid">
+        <div class="method-card">
+          <p class="method-label">Quantitative</p>
+          <p class="method-text">Structured survey distributed to over 40 participants, including both students and educators. Questions covered motivation methods, behavioural observations, and perception scoring — producing numerical data analysed for patterns and correlations.</p>
+        </div>
+        <div class="method-card">
+          <p class="method-label">Qualitative</p>
+          <p class="method-text">Document analysis and observational studies complemented the survey data. Literature was curated and managed via Mendeley, prioritising highly cited, recent publications to ensure credibility and relevance.</p>
+        </div>
+        <div class="method-card">
+          <p class="method-label">Literature Review</p>
+          <p class="method-text">Reviewed and synthesised existing empirical studies on gamification in higher education, covering platforms such as Kahoot and Moodle, and researchers including Deterding et al. (2011) and Hamari et al. (2014).</p>
+        </div>
+        <div class="method-card">
+          <p class="method-label">Artefact Design</p>
+          <p class="method-text">Research findings directly informed the design of a gamified education platform concept — translating academic insights into practical system design, including wireframes for student profiles, analytics dashboards, and subject navigation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THEORETICAL FRAMEWORKS -->
+    <div class="section">
+      <h2 class="section-heading">Theoretical Frameworks</h2>
+      <p>Three psychological theories underpinned the analysis of how learners respond to gamified environments.</p>
+      <div class="framework-grid">
+        <div class="framework-card">
+          <p class="framework-name">Self-Determination Theory</p>
+          <p class="framework-desc">Deci & Ryan's model proposes that autonomy, competence, and relatedness drive intrinsic motivation. Gamification supports all three — giving learners control, visible progress, and social interaction — shifting motivation from extrinsic to intrinsic over time.</p>
+        </div>
+        <div class="framework-card">
+          <p class="framework-name">Flow Theory</p>
+          <p class="framework-desc">Csikszentmihalyi's flow state describes optimal engagement where challenge and skill are balanced. Gamified systems — through adaptive difficulty and immediate feedback — are uniquely positioned to maintain this state in learners, paralleling good game design.</p>
+        </div>
+        <div class="framework-card">
+          <p class="framework-name">Behavioural Economics</p>
+          <p class="framework-desc">Reward structures, loss aversion, and incentive design all influence learner decision-making. Gamification applies these principles — points, streaks, and leaderboards — to nudge participation and sustain engagement beyond a single session.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY FINDINGS -->
     <div class="section">
       <h2 class="section-heading">Key Findings</h2>
       <ul class="finding-list">
-        <li>Gamification mechanics most effectively improve engagement when difficulty scales to the individual learner — mirroring adaptive difficulty design in games</li>
-        <li>Reward loops are most powerful when tied to meaningful progress rather than surface-level points or badges</li>
-        <li>Immediate, specific feedback is a critical factor in both game feel and learning outcomes — the two fields converge here more than existing literature acknowledges</li>
-        <li>Poorly implemented gamification can reduce intrinsic motivation — the design intent matters as much as the mechanics themselves</li>
-        <li>The most effective EdTech systems borrow game design thinking holistically, not just cosmetically</li>
+        <li>Student mean perception score of <strong>7.98/10</strong> — indicating strong, widespread positive reception of gamified teaching across diverse backgrounds and age groups</li>
+        <li><strong>100% of educators</strong> surveyed observed positive changes in student behaviour and participation when using gamified methods versus traditional approaches</li>
+        <li><strong>74.5%</strong> of students who had experienced gamification expressed satisfaction; <strong>0%</strong> responded negatively when asked about interest in gamified learning</li>
+        <li>Points and rewards systems slightly outperformed leaderboards as the most effective motivational tool according to educators — suggesting tangible recognition drives more sustained engagement than competition alone</li>
+        <li>Primary implementation challenges were noise and disruption from student excitement, and younger learners occasionally struggling to grasp the concept of gamification — both manageable with structured delivery</li>
+        <li><strong>88.9% of educators</strong> agreed that dedicated training and support for implementing gamification is essential for effective curriculum integration</li>
+        <li>Gamification was most effective when mechanics were tied to meaningful progress — surface-level badges or points without context had diminishing impact on engagement</li>
       </ul>
     </div>
 
+    <!-- ARTEFACT -->
+    <div class="section">
+      <h2 class="section-heading">Project Artefact — Unified Gamified Learning Platform</h2>
+      <p>The research findings directly informed the design of the Unified Gamified Learning Platform (UGLP) — a concept for a centralised, cross-school gamified education system. The platform translates the dissertation's academic conclusions into a practical, feature-complete design proposal.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <p class="feature-title">Centralised Student Profiles</p>
+          <p class="feature-desc">Each student has a persistent profile tracking academic progress, engagement levels, and learning history — transferring seamlessly between classes and schools to ensure continuity.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-title">Gamified Lesson Plans</p>
+          <p class="feature-desc">Educators access a repository of subject-specific gamified lesson plans incorporating quizzes, leaderboards, and reward structures — grounded in the project's findings on effective engagement mechanics.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-title">Real-Time Analytics Dashboard</p>
+          <p class="feature-desc">Live performance data for students, educators, and parents — including trend charts, comparative class performance, and improvement recommendations — enabling data-driven decisions at every level.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-title">Adaptive Learning Pathways</p>
+          <p class="feature-desc">Dynamic learning routes that adjust based on individual performance and preferences, supporting the flow theory principle of maintaining challenge-skill balance for each learner.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-title">Parental Engagement</p>
+          <p class="feature-desc">Parents access their child's profile, attendance records, and educator feedback — with direct messaging to teachers — fostering the collaborative learning environment identified as most effective in the research.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-title">Collaborative Educator Communities</p>
+          <p class="feature-desc">Cross-school sharing of lesson plans, resources, and best practices — directly addressing the 88.9% of educators who identified training and support as essential for successful gamification rollout.</p>
+        </div>
+      </div>
+
+      <div class="video-block" style="margin-top: 1.5rem;">
+        <p class="video-label">Platform Presentation</p>
+        <iframe src="https://www.youtube.com/embed/DbZY4ZH5VGs" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- RELEVANCE -->
     <div class="section">
       <h2 class="section-heading">Relevance to Game Design</h2>
-      <div class="relevance-box">
-        <p>This research deepened my understanding of why the mechanics I design actually work — not just how to implement them. Understanding the psychology behind reward loops, feedback timing, and challenge curves makes me a more intentional designer, whether I'm building a puzzle platformer or a progression system.</p>
-        <p>It also demonstrated that game design principles have real-world impact beyond entertainment — something I find genuinely compelling as a direction for the industry.</p>
+      <div class="conclusion-box">
+        <p>This research sharpened an understanding of <em>why</em> well-designed systems hold people — not just how to implement the mechanics. The same principles that make gamified education effective — clear progression, meaningful rewards, balanced challenge, and immediate feedback — are the foundations of good game design.</p>
+        <p>Working through the theory behind engagement, studying real player/learner data, and translating findings into a practical system design gave practical experience in the full loop from research to product — a process directly applicable to game design and systems thinking in a professional studio context.</p>
       </div>
     </div>
 
